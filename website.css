@@ -4,17 +4,38 @@ body{
 
 #navbar{
     background-color: #DF807E;
-    padding: 20px;
+    padding: 8px;
     text-align: center;
     border-radius: 20px;
+
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
 }
 
 #navbar a{
     color: white;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 15px;
     font-size: 18px;
 }
+
+#search-bar{
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+#search-button{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #8A9A5B;
+    color: white;
+    cursor: pointer;
+}
+
 
 footer{
     background-color: #DF807E;
@@ -22,4 +43,15 @@ footer{
     text-align: center;
     border-radius: 20px;
     margin-top: 20px;
+}
+
+/* pokemon */
+.gen-buttons{
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+}
+
+#gens{
+    align-items: center;
 }
