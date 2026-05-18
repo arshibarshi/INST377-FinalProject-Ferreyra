@@ -1,6 +1,9 @@
 # BulbaDex 
 ### INST377 Final Project - Ademir Ferreyra
 
+### Live Deployment
+https://inst-377-final-project-ferreyra.vercel.app/
+
 Hello! This is Bulbadex! A website I created where you can find the latest pokemon news along with adding your favorite 115 pokemon from the pokedex onto your list! This was builte using Node.js, express, and supabase!
 
 ## Target Browsers
@@ -53,3 +56,21 @@ node index.js
 ```
 
 and then open your browser and go to http://localhost:3000
+
+## API Endpoints
+### Get /api/pokemon
+fetches the first 151 Pokemon from the PokeAPI
+- response: a JSON array of pokemon with their names and their url
+
+###Get /api/favorites
+gets all saved favorite pokemon from the supabase database
+- response: JSON array of pokemon Objects
+
+## POST /api/favorites
+Saves a new pokemon to the Supabase database
+- response: the new pokemon object
+
+
+## Bugs
+- news page currently calls NewsAPI directly from the frontend since NewsAPI blockes server-side on free accounts
+- loading may be slow on the first load
