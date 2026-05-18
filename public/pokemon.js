@@ -35,7 +35,6 @@ async function allPkmn(){
         pkmnData[index].sprite
         );
         favCell.appendChild(favBtn);
-        row.appendChild(favCell);
         
         row.appendChild(imgCell);
         row.appendChild(numCell);
@@ -73,13 +72,17 @@ async function loadFavorites(){
     const response = await fetch("/api/favorites");
     const favorites = await response.json();
     console.log('Current favorites:', favorites);
+    const favoritesList = document.getElementById('favorites-list');
     favoritesList.innerHTML = '';
 
     favorites.forEach(pokemon => {
-        const card = document.getElementById('favorites-section');
-        card.innerHTML = `<img src="${pokemon.image_url}" alt="${pokemon.pokemon_name}"> 
-                          <p>${pokemon.pokemon_name}</p>
-                          <p>${pokemon.pokemon_type}</p>`;
+        const card = document.createElement('div');
+        card.classList.add('favorite-card');
+        card.innerHTML = `
+            <h3>${pokemon.name}</h3>
+            <img src="${pokemon.image}" alt="${pokemon.name}">
+            <p>Type: ${pokemon.type}</p>
+        `;
         favoritesList.appendChild(card);
     });
 }
