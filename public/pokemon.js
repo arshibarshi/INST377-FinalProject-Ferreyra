@@ -42,7 +42,10 @@ async function allPkmn(){
         row.appendChild(typeCell);
         row.appendChild(favCell);
         info.appendChild(row);
+
     });
+        buildTypeChart(pkmnData);
+
 }
 async function getPkmnData(url){
     const response = await fetch(url);  // fetches "https://pokeapi.co/api/v2/pokemon/1/"
@@ -84,6 +87,65 @@ async function loadFavorites(){
             <p>Type: ${pokemon.type}</p>
         `;
         favoritesList.appendChild(card);
+    });
+}
+
+function buildTypeChart(pkmnData){
+    const typeCounts = {};
+    pkmnData.forEach(pokemon => {
+        pokemon.types.split(', ').forEach(type => {
+            typeCounts[type] = (typeCounts[type] || 0) + 1;
+        });
+    });
+
+    const labels = Object.keys(typeCounts);
+    const counts = Object.values(typeCounts);
+
+    const typeColors = {
+        fire: '#F08030',
+        water: '#6890F0',
+        grass: '#78C850',
+        electric: '#F8D030',
+        psychic: '#F85888',
+        ice: '#98D8D8',
+        dragon: '#7038F8',
+        dark: '#705848',
+        fairy: '#EE99AC',
+        normal: '#A8A878',
+        fighting: '#C03028',
+        flying: '#A890F0',
+        poison: '#A040A0',
+        ground: '#E0C068',
+        rock: '#B8A038',
+        bug: '#A8B820',
+        ghost: '#705898',
+        steel: '#B8B8D0',
+    };
+
+    const colors = labels.map(type => typeColors[type] || '#68A090');
+
+    const ctx = document.getElementById('type-chart').getContext('2d');
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Number of Pokemon',
+                data: counts,
+                backgroundColor: colors
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    position: 'right'
+                },
+                title: {
+                    display: true,
+                    text: 'Pokemon Types'
+                }
+            }
+        }
     });
 }
 

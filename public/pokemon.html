@@ -2,6 +2,7 @@
     <head>
         <title> Pokemon - Bulbadex </title>
         <script src="pokemon.js" defer></script>
+        <script src = "https://cdn.jsdelivr.net/npm/chart.js"></script>
         <link rel="stylesheet" href="website.css">
     </head>
     <body>
@@ -15,7 +16,11 @@
     <h1>
         <h2> All Pokemon </h2>
     </h1>
+    <h2>Pokemon Type Distribution</h2>
+    <canvas id="type-chart" style="max-width: 400px; margin: 20px auto; display: block;"></canvas>
+
     <div>
+         
         <table id = "national-dex">
             <tr>
             <th>#</th>
