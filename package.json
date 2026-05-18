@@ -1,0 +1,29 @@
+{
+  "name": "inst377-finalproject-ferreyra",
+  "version": "1.0.0",
+  "description": "INST377 Final Project App by Ademir Ferreyra",
+  "homepage": "https://github.com/arshibarshi/INST377-FinalProject-Ferreyra#readme",
+  "bugs": {
+    "url": "https://github.com/arshibarshi/INST377-FinalProject-Ferreyra/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arshibarshi/INST377-FinalProject-Ferreyra.git"
+  },
+  "license": "ISC",
+  "author": "Ademir Ferreyra",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.105.4",
+    "body-parser": "^2.2.2",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14",
+    "usa-state-validator": "^1.0.6"
+  }
+}
