@@ -64,6 +64,8 @@ async function addFavorite(name, type, image_url){
     });
     const data = await response.json();
     console.log('Added to favorites:', data);
+    alert(`${name} added to favorites!`);
+    loadFavorites();
     
 }
 
@@ -71,10 +73,13 @@ async function loadFavorites(){
     const response = await fetch("/api/favorites");
     const favorites = await response.json();
     console.log('Current favorites:', favorites);
+    favoritesList.innerHTML = '';
 
     favorites.forEach(pokemon => {
         const card = document.getElementById('favorites-section');
-        card.innerHTML = '<img src="${pokemon.image_url}" alt="${pokemon.pokemon_name}"> <p>${pokemon.pokemon_name}</p><p>${pokemon.pokemon_type}</p>';
+        card.innerHTML = `<img src="${pokemon.image_url}" alt="${pokemon.pokemon_name}"> 
+                          <p>${pokemon.pokemon_name}</p>
+                          <p>${pokemon.pokemon_type}</p>`;
         favoritesList.appendChild(card);
     });
 }
@@ -83,3 +88,4 @@ async function loadFavorites(){
 
 
 allPkmn();
+loadFavorites();
