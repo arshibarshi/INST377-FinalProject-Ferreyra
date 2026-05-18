@@ -40,7 +40,7 @@ app.get('/api/favorites', async (req, res) => {
     .select();
 
   if (error) {
-    console.log('Error: ${error}');
+    console.log(`Error: ${error}`);
     res.statusCode = 500;
     res.send(error);
   } else {
@@ -62,7 +62,7 @@ app.post('/api/favorites', async (req, res) => {
 
   const { data, error } = await supabase
     .from('favorites')
-    .insert([{ name, type, image_url }])
+    .insert([{ pokemon_name:name, pokemon_type:type, image_url:image_url }])
     .select();
 
   if (error) {

@@ -1,5 +1,5 @@
 async function allPkmn(){
-    const url = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
+    const url = await fetch("/api/pokemon");
     const data = await url.json();
 
     const info = document.getElementById('national-dex');
