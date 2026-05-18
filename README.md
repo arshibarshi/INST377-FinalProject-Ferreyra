@@ -38,3 +38,18 @@ npm install
 ```
 
 3. Create a `.env` file in the root directory:
+
+4. Set up supabase by creating a 'favorites table with these columns:
+    - 'id' (int8, primary key)
+    - 'pokemon_name' (text)
+    - 'pokemon_type' (text)
+    - 'image_url' (text)
+
+5. DISABLE RLS on the favorites table in Supabase!!!
+
+## Run the application 
+```bash
+node index.js
+```
+
+and then open your browser and go to http://localhost:3000
